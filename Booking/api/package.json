@@ -1,0 +1,15 @@
+{
+  "name": "booking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nazmul hasan",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.6",
+    "nodemon": "^2.0.16"
+  }
+}
