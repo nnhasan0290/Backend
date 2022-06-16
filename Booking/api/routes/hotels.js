@@ -1,11 +1,10 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
-import HotelModel from "../models/Hotel.js";
+const  HotelModel = require("../models/Hotel.js");
 
-router.post("/", async (req, res) => {
-  const newHotel = new HotelModel(req.body);
+exports.creatingHotel = router.post("/", async (req, res) => {
   try {
-    const savedHotel = await newHotel.save();
+    const savedHotel = await HotelModel.create(req.body);
     console.log(savedHotel);
     res.status(200).json(savedHotel);
   } catch (error) {
@@ -14,4 +13,3 @@ router.post("/", async (req, res) => {
   }
 });
 
-export default router;
