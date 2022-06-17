@@ -1,15 +1,15 @@
 const express = require("express");
+const {
+  createHotel,
+  updateHotel,
+  deleteHotel,
+  getSingleOne,
+  getAllHotels,
+} = require("../controllers/hotelController.js");
 const router = express.Router();
-const  HotelModel = require("../models/Hotel.js");
 
-exports.creatingHotel = router.post("/", async (req, res) => {
-  try {
-    const savedHotel = await HotelModel.create(req.body);
-    console.log(savedHotel);
-    res.status(200).json(savedHotel);
-  } catch (error) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+router.route("/new").post(createHotel);
+router.route("/:id").put(updateHotel).delete(deleteHotel).get(getSingleOne);
+router.route("/").get(getAllHotels);
 
+module.exports = router;
